@@ -314,7 +314,7 @@ for (let i of fen) {
         for (let piece in pieces) {
             if (pieces[piece].name === i.toLowerCase()) {
                 const white = i === i.toLowerCase()
-                pieceImage.setAttribute("src", "chess-pieces/" + (white? "b" : "w") + i.toLowerCase() + ".png")
+                pieceImage.setAttribute("src", (white? "b" : "w") + i.toLowerCase() + ".png")
                 mainGame.board[square] = white? Number(piece) : -Number(piece)
                 pieceImage.style = "left:" + ((square % 8) * 50).toString() + "px; top: " + (Math.floor((square / 8)) * 50).toString() + "px;"
                 images[square] = pieceImage
@@ -369,7 +369,7 @@ const playMove = function(game, move, replicate) {
         if (replicate === true) {
             const name = pieces[move[3]].name
 
-            images[move[1]].setAttribute("src", "chess-pieces" + (isWhite(game.board[move[1]])? "b" : "w") + name + ".png")
+            images[move[1]].setAttribute("src", (isWhite(game.board[move[1]])? "b" : "w") + name + ".png")
         }
 
         game.board[move[1]] = isWhite(game.board[move[1]])? move[3] : -move[3]
