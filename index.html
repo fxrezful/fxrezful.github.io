@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>fxrezful</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script src="default.js"></script>
+
+        <div class="main" id="main">
+            <h1>Home</h1>
+            <h2>Welcome!</h2>
+            <p align="justify">
+                Welcome to fxrezful's website! There is pretty much nothing to see here but good job finding this.
+                I mostly made this website to learn new languages (HTML, javascript) but this ended up being a pretty fun project.
+                This page is just funny long text that you don't have to read unless you are obsessed with me so yeah you can skip to <a href="me.html">My Works</a> or <a href="chess.html">Chess</a>
+            </p>
+
+            <h2>About me</h2>
+            <p align="justify">
+                You might know me from <a href="https://www.roblox.com/games/6311279644/TRIA-os-MAP-FIXES">TRIA.os</a>, an amazing ROBLOX game I enjoy a lot, 
+                I've been stuck in this hell hole of making maps for ROBLOX flood escaping games for 3 years now,
+                starting from Flood Escape 2 back in 2020 where I really got into Roblox Studio, and learnt the basics of building and scripting. 
+                Due to poor motivation, I did not release any <em>real</em> maps in this game despite having started dozens of maps. <br><br>
+
+                In march 2021,
+                I moved on to making maps for TRIA.os because of Roblox's new audio update which made audios only usable in the experiences they were published to,
+                TRIA.os made a system to get around that by manually verifying audios submitted in a special channel in their Discord server, 
+                which is why I moved to TRIA.os. <br><br>
+
+                At the start of 2022,
+                I had joined the Nightlife Devs and participated in the creation of EndZone with Marchionne, Kris, Alex28901, Literal_Cow and MalachiLeapYear,
+                which took over 7 months to create and is currently one of the most difficult TRIA.os maps at the moment, 
+                this is where I started to get known around the community.
+                I continued to create and help creating maps from mid 2022 to start of 2023,
+                which you might have heard of:
+                Reaver, The Sin, Moonlight Cosmos, Vivid, Vacuus and Dystopian World, collaborating with big creators such as Enszo, Svilar and more. <br> <br>
+
+                At the moment I am currently trying to make a game while also trying all sorts of stuff just like making a website.
+            </p>
+
+            <h2>Uhh...</h2>
+            <p>I don't really care about this website so you can go ahead and copy some code from here or even the whole thing, I don't really care.</p>
+
+            <h2>Random stuff</h2>
+            <p>The rest of this page is nothing important</p>
+            <div class="codeblock">
+                <div class="codeblocktitle"><div class="inner">TRIA.os | Getting the music sound instance</div></div>
+                <div class="innercodeblock">
+                    <pre><span class="keyword">local</span> Players = <span class="global">game</span>:<span class="method">GetService</span>(<span class="string">"Players"</span>)
+<span class="keyword">local</span> Sound = <span class="global">require</span>(Players.LocalPlayer.PlayerScripts.client.Sound)
+
+<span class="keyword">local</span> music = SoundService:<span class="method">GetCurrentMusic</span>()<span class="comment"> -- Music instance</span>
+
+<span class="global">task.wait</span>(<span class="number">3</span>)
+
+music:<span class="method">Stop</span>()<span class="comment"> -- Stops the music after 3 seconds</span>
+</pre>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script src="index.js"></script>
+</html>
