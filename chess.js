@@ -369,7 +369,7 @@ const playMove = function(game, move, replicate) {
         if (replicate === true) {
             const name = pieces[move[3]].name
 
-            images[move[1]].setAttribute("src", "chess-pieces" + (isWhite(game.board[move[1]])? "b" : "w") + name + ".png")
+            images[move[1]].setAttribute("src", "chess-pieces/" + (isWhite(game.board[move[1]])? "b" : "w") + name + ".png")
         }
 
         game.board[move[1]] = isWhite(game.board[move[1]])? move[3] : -move[3]
@@ -422,7 +422,7 @@ const createNode = function(game) {
     return node
 }
 
-const minimax = function(game, depth, alpha, beta, maximizingPlayer) {
+const minimax = function(game, depth, alpha, beta, maximizingPlayer, evaluate) {
     if (depth === 0) {
         return [evaluate(game)]
     }
@@ -434,7 +434,7 @@ const minimax = function(game, depth, alpha, beta, maximizingPlayer) {
         const node = createNode(game);
         playMove(node, move);
 
-        const evaluation = minimax(node, depth - 1, alpha, beta, !maximizingPlayer)[0]
+        const evaluation = minimax(node, depth - 1, alpha, beta, !maximizingPlayer, evaluate)[0]
 
         if (maximizingPlayer === true) {
             if (bestEvaluation < evaluation) {
@@ -497,11 +497,19 @@ const getMoves = function(game, whiteToMove) {
     return moves
 }
 
+const evaluationBar = document.getElementById("evaluation")
+
 const playRandomMove = function(whiteToMove) {
-    const evaluated = minimax(mainGame, 4, -Infinity, Infinity, whiteToMove)
+    const evaluated = minimax(mainGame, 4, -Infinity, Infinity, whiteToMove, function(game) {
+        return evaluate(game) - 100 + randomInt(200)
+    })
 
     playMove(mainGame, evaluated[1], true)
-    setTimeout(playRandomMove, 1000, !whiteToMove)
+
+    const realEvaluation = minimax(mainGame, 4, -Infinity, Infinity, !whiteToMove, evaluate)
+    evaluationBar.style = "height: " + String(200 + realEvaluation[0] / 12) +  "px;"
+
+    setTimeout(playRandomMove, 200, !whiteToMove)
 }
 
 setTimeout(playRandomMove, 5000, false)
